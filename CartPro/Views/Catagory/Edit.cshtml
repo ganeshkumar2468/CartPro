@@ -1,0 +1,28 @@
+﻿@model CatagoryVM
+
+<h1>Adding New Catagory </h1>
+
+@using (Html.BeginForm("Edit", "Catagory", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(false)
+    <br />
+    <div>
+        @Html.HiddenFor(x => x.Id)
+    </div>
+    <div>
+        @Html.Label("Catagory Name")
+        @Html.TextBoxFor(m => m.Name)
+        @Html.ValidationMessageFor(m => m.Name)
+    </div>
+    <div>
+        @Html.Label("Catagory Description")
+        @Html.TextBoxFor(m => m.Description)
+        @Html.ValidationMessageFor(m => m.Description)
+    </div>
+    <br />
+    <input type="submit" value="Edit" />
+}
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

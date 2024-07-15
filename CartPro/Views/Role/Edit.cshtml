@@ -1,0 +1,23 @@
+﻿@model Role
+
+@using (Html.BeginForm("Edit", "Role", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    @Html.ValidationSummary(false)
+    <div>
+        @Html.HiddenFor(x => x.Id)
+    </div>
+    <div>
+        @Html.Label("Name")
+        @Html.EditorFor(m => m.Name)
+        @Html.ValidationMessageFor(m => m.Name)
+    </div>
+    <br />
+    <div>
+        <input type="submit" value="Update Role" />
+    </div>
+}
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

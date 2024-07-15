@@ -1,0 +1,11 @@
+﻿@model Role
+
+<h1>Adding New Role </h1>
+
+@using (Html.BeginForm("Create", "Role", FormMethod.Post))
+{
+    @Html.Label("Role Name")
+    @Html.TextBoxFor(m => m.Name)
+
+    <input type="submit" value="Save" />
+}

@@ -1,0 +1,28 @@
+﻿@model CatagoryVM
+
+<h1>Adding New Catagory </h1>
+
+@using (Html.BeginForm("Delete", "Catagory", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(false)
+    <br />
+    <div>
+        @Html.HiddenFor(x => x.Id)
+    </div>
+    <div>
+        @Html.Label("Catagory Name")
+        @Html.DisplayFor(m => m.Name)
+        @Html.ValidationMessageFor(m => m.Name)
+    </div>
+    <div>
+        @Html.Label("Catagory Description")
+        @Html.DisplayFor(m => m.Description)
+        @Html.ValidationMessageFor(m => m.Description)
+    </div>
+    <p>Are you sure you want to delete the record?</p>
+    <input type="submit" value="Delete" />
+}
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

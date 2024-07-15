@@ -1,0 +1,34 @@
+﻿@using CartPro.Models;
+@model IEnumerable<RegisterVM>
+
+<h1> Register List</h1>
+
+<table class="table">
+    <tr>
+        <td>FirstName</td>
+        <td>LastName</td>
+        <td>Email</td>
+        <td>PhoneNumber</td>
+        <td>Address</td>
+        <td>City</td>
+        <td>Operations</td>
+    </tr>
+    @foreach (RegisterVM register in Model)
+    {
+        <tr>
+            <td>@register.FirstName</td>
+            <td>@register.LastName</td>
+            <td>@register.Email</td>
+            <td>@register.PhoneNumber</td>
+            <td>@register.Address</td>
+            <td>@register.City</td>
+            <td>
+                @Html.ActionLink("Edit Register", "Edit", new { id = register.Id })
+                @Html.ActionLink("Delete Register", "Delete", new { id = register.Id })
+            </td>
+        </tr>
+    }
+</table>
+<div>
+    @Html.ActionLink("Create Register", "Create")
+</div>

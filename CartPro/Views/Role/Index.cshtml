@@ -1,0 +1,28 @@
+﻿@model IEnumerable<Role>
+
+<H1>Roles </H1>
+
+@using (Html.BeginForm())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <td>Role Name</td>
+                <td>Role Operations</td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var r in Model)
+            {
+                <tr>
+                    <td>@r.Name</td>
+                    <td>
+                        @Html.ActionLink("Add Role", "Create", "Role")
+                        @Html.ActionLink("Edit Role", "Edit", new { id = r.Id })
+                        @Html.ActionLink("Delete Role", "Delete", new { id = r.Id })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

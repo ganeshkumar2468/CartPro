@@ -1,0 +1,25 @@
+﻿@using CartPro.Models;
+@model IEnumerable<CatagoryVM>
+
+<h1> Catagory List</h1>
+
+<table class="table">
+    <tr>
+        <td>Catagory Name</td>
+        <td> Catagory Description</td>
+    </tr>
+    @foreach (CatagoryVM catagory in Model)
+    {
+        <tr>
+            <td>@catagory.Name</td>
+            <td>@catagory.Description</td>
+            <td>
+                @Html.ActionLink("Edit Catagory", "Edit", new { id = catagory.Id })
+                @Html.ActionLink("Delete Catagory", "Delete", new { id = catagory.Id })
+            </td>
+        </tr>
+    }
+</table>
+<div>
+    @Html.ActionLink("Create Catagory", "Create")
+</div>

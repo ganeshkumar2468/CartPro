@@ -1,0 +1,24 @@
+﻿@model Role
+
+@using (Html.BeginForm("Delete", "Role", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    @Html.ValidationSummary(false)
+    <div>
+        @Html.HiddenFor(x => x.Id)
+    </div>
+    <div>
+        @Html.Label("Name")
+        @Html.DisplayFor(m => m.Name)
+        @Html.ValidationMessageFor(m => m.Name)
+    </div>
+    @Html.Label("Are you sure you want delete this record")
+    <br />
+    <div>
+        <input type="submit" value="Delete Role" />
+    </div>
+}
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
